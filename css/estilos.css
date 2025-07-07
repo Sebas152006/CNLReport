@@ -1,0 +1,134 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+/* Menú lateral */
+.menu {
+    width: 60px;
+    height: 100vh;
+    background: #343062;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+/* Botón de despliegue */
+.menu-toggle {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Contenedor de elementos */
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+/* Estilos de cada opción del menú */
+.menu-items a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    padding-left: 12px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s;
+}
+
+/* Íconos e imágenes */
+.menu-items a img, 
+.menu-items a i {
+    width: 36px; 
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Texto dentro del enlace */
+.menu-items a span {
+    flex-grow: 1;
+    display: none; /* Oculto en versión reducida */
+}
+
+/* Cuando el menú está expandido */
+.menu.expanded {
+    width: 200px;
+}
+
+/* Mostrar texto en versión expandida */
+.menu.expanded .menu-items a span {
+    display: inline-block;
+}
+
+/* Opción activa: Todo el fondo cambia */
+.menu-items a.active {
+    background: rgba(255, 255, 255, 0.3); /* Fondo claro */
+    font-weight: bold;
+    color: #ffffff; /* Asegura texto legible */
+}
+
+/* Efecto en íconos e imágenes cuando activos */
+.menu-items a.active img, 
+.menu-items a.active i {
+    filter: brightness(1.2);
+}
+
+@media (max-width: 750px) {
+    .menu-toggle {
+        display: none;
+    }
+    .menu {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        background-color: #343062;
+        z-index: 999;
+    }
+
+    .menu-items {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+    }
+
+    .menu-items a {
+        padding: 10px 12px;
+        justify-content: center;
+    }
+
+    .menu-items a span {
+        display: none; /* ocultamos texto en versión compacta si es necesario */
+    }
+
+    .menu-items a img {
+        width: 28px;
+        height: auto;
+        margin: 0;
+    }
+
+    .formulario_fondo {
+        margin-top: 80px; /* espacio para que el menú no tape el formulario */
+    }
+}

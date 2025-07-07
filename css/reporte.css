@@ -1,0 +1,160 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('../images/fondo_PC.png') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(1px);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrado vertical */
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #2C1E53;
+    margin-bottom: 15px;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor del formulario */
+.formulario_fondo {
+    background-color: white;
+    width: 600px;
+    display: flex;
+    border-radius: 12px;
+}
+
+/* Contenedor del formulario */
+form {
+    background-color: rgba(0, 182, 176, 0.397); /* turquesa translúcido */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(44, 30, 83, 0.2);
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Etiquetas de texto */
+form p {
+    margin: 0;
+    margin-top: 10px;
+    font-weight: 650;
+    color: #2C1E53;
+}
+
+/* Entradas de texto y archivo */
+input[type="text"],
+input[type="file"], textarea,
+select {
+    font-size: 14px;
+    font-weight:550;
+    padding: 10px;
+    border: 1px solid #2C1E53;
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    color: #353044;
+}
+
+textarea {
+    height: 80px;
+}
+
+.grupo1 {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column; /* apila p y select */
+    min-width: 240px;
+    max-width: 300px;
+}
+
+.campo p {
+    margin-bottom: 10px;
+}
+
+/* Botón de enviar */
+button[type="submit"] {
+    padding: 10px;
+    background-color: #2C1E53;;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #00B6B0;
+    color: #2C1E53;
+}
+
+/* Cerrar sesión */
+.cerrar_sesion {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.cerrar_sesion:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+@media (max-width: 600px) {
+    body {
+        height: 100dvh;
+        padding: 25px; /* Evita que se pegue demasiado a los bordes */
+        height: auto;
+    }
+    
+    html, body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .formulario_fondo,
+    form {
+        width: 100%;
+    }
+
+    .grupo1 {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .campo {
+        min-width: unset;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+

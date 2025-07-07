@@ -1,0 +1,90 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2C1E53;
+    background-image: url('../images/fondo_PC.png'); /* Cambia la ruta a la imagen de fondo */
+    background-size: cover; /* La imagen cubrirá toda la pantalla */
+    background-position: center; /* La imagen estará centrada */
+    background-repeat: no-repeat;
+    
+}
+
+.recuadro1{
+   background-color: white;
+   width: 350px; 
+   border-radius: 12px;
+}
+
+/* Contenedor principal */
+.recuadro {
+    background-color: rgba(0, 182, 176, 0.397); /* turquesa translúcido */
+    padding: 40px;
+    padding-top: 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(44, 30, 83, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+/* Título */
+.recuadro h2 {
+    margin-bottom: 25px;
+    color: #2C1E53;
+}
+
+/* Estilo del formulario */
+.formulario_login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Etiquetas */
+.formulario_login p {
+    text-align: left;
+    font-weight: 650;
+    color: #2C1E53;
+    margin: 0;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #2C1E53;
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    color: #2C1E53;
+}
+
+/* Botón */
+.inicio_sesion {
+    margin-top: 7px;
+    padding: 10px;
+    background-color: #2C1E53;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.inicio_sesion:hover {
+    background-color: #00B6B0;
+    color: #2C1E53;
+}
