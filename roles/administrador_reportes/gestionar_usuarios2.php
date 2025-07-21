@@ -46,5 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <a href="php/cerrar_Sesion.php" class="cerrar_sesion">Cerrar Sesión</a>
+
+
+
+    
 </body>
 </html>

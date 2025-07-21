@@ -4,7 +4,7 @@
 
     <nav class="menu-items">
         <!--Inicio-->
-        <a href="pruebamenu.php" class="<?php echo ($current_page == 'pruebamenu.php') ? 'active' : ''; ?>">
+        <a href="seleccion.php" class="<?php echo ($current_page == 'seleccion.php') ? 'active' : ''; ?>">
             <img src="../../menu_lateral/images/Inicio.png" alt="INICIO"><span>Inicio</span>
         </a>
         <!--Reportar Timbre-->
@@ -15,8 +15,9 @@
         <a href="consultar_reportes.php" class="<?php echo ($current_page == 'consultar_reportes.php') ? 'active' : ''; ?>">
             <img src="../../menu_lateral/images/Consulta_Reportes.png" alt="MIS REPORTES"><span>Mis Reportes</span>
         </a>
-        <a href="../administrador_reportes/gestionar_reportes.php" class="<?php echo ($current_page == 'gestionar_reportes.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Gestionar_Reportes.png" alt="MIS REPORTES"><span>Mis Reportes</span>
+        <!--Mi Cuenta-->
+        <a href="contrasenia.php" class="<?php echo ($current_page == 'mi_Cuenta.php') ? 'active' : ''; ?>">
+            <img src="../../menu_lateral/images/Perfil.png" alt="MI CUENTA"><span>Mis Reportes</span>
         </a>
         <!--Cerrar Sesión-->
         <a href="../../php/cerrar_Sesion.php" class="<?php echo ($current_page == 'php/cerrar_Sesion.php') ? 'active' : ''; ?>">

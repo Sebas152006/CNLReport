@@ -69,113 +69,119 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
     <?php include '../../menu_lateral/menu2.php'; ?>
     <h1>Gestionar Reportes</h1>
 
-<form method="GET" style="margin-bottom: 20px;">
-    <input type="text" name="id" placeholder="ID" value="<?= $_GET['id'] ?? '' ?>">
-    <input type="text" name="piso" placeholder="Piso" value="<?= $_GET['piso'] ?? '' ?>">
-    <input type="text" name="habitacion" placeholder="Habitación" value="<?= $_GET['habitacion'] ?? '' ?>">
-    <input type="text" name="tipo_dano" placeholder="Tipo de Daño" value="<?= $_GET['tipo_dano'] ?? '' ?>">
-    <select name="estado">
-        <option value="">-- Estado --</option>
-        <option value="Ingresada" <?= ($_GET['estado'] ?? '') === 'Ingresada' ? 'selected' : '' ?>>Ingresada</option>
-        <option value="En Proceso" <?= ($_GET['estado'] ?? '') === 'En Proceso' ? 'selected' : '' ?>>En Proceso</option>
-        <option value="Finalizada" <?= ($_GET['estado'] ?? '') === 'Finalizada' ? 'selected' : '' ?>>Finalizada</option>
-    </select>
-    <button type="submit">Filtrar</button>
-</form>
+    <form method="GET" style="margin-bottom: 20px;">
+        <input type="text" name="id" placeholder="ID" value="<?= $_GET['id'] ?? '' ?>">
+        <input type="text" name="piso" placeholder="Piso" value="<?= $_GET['piso'] ?? '' ?>">
+        <input type="text" name="habitacion" placeholder="Habitación" value="<?= $_GET['habitacion'] ?? '' ?>">
+        <input type="text" name="tipo_dano" placeholder="Tipo de Daño" value="<?= $_GET['tipo_dano'] ?? '' ?>">
+        <select name="estado">
+            <option value="">-- Estado --</option>
+            <option value="Ingresada" <?= ($_GET['estado'] ?? '') === 'Ingresada' ? 'selected' : '' ?>>Ingresada</option>
+            <option value="En Proceso" <?= ($_GET['estado'] ?? '') === 'En Proceso' ? 'selected' : '' ?>>En Proceso</option>
+            <option value="Finalizada" <?= ($_GET['estado'] ?? '') === 'Finalizada' ? 'selected' : '' ?>>Finalizada</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Piso</th>
-            <th>Habitación</th>
-            <th>Tipo de Daño</th>
-            <th>Estado</th>
-            <th>Acción</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($reportes as $reporte): ?>
-        <tr>
-            <td><?= $reporte['id'] ?></td>
-            <td><?= htmlspecialchars($reporte['piso']) ?></td>
-            <td><?= htmlspecialchars($reporte['habitacion']) ?></td>
-            <td><?= htmlspecialchars($reporte['tipo_dano']) ?></td>
-            <td><?= htmlspecialchars($reporte['estado']) ?></td>
-            <td>
-                <button class="btn-ver" onclick="abrirModal(<?= $reporte['id'] ?>)">Mostrar más</button>
-            </td>
-        </tr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Piso</th>
+                <th>Habitación</th>
+                <th>Tipo de Daño</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($reportes as $reporte): ?>
+            <tr>
+                <td><?= $reporte['id'] ?></td>
+                <td><?= htmlspecialchars($reporte['piso']) ?></td>
+                <td><?= htmlspecialchars($reporte['habitacion']) ?></td>
+                <td><?= htmlspecialchars($reporte['tipo_dano']) ?></td>
+                <td><?= htmlspecialchars($reporte['estado']) ?></td>
+                <td>
+                    <button class="btn-ver" onclick="abrirModal(<?= $reporte['id'] ?>)">Mostrar más</button>
+                </td>
+            </tr>
 
-        <!-- Modal flotante -->
-        <div class="modal" id="modal-<?= $reporte['id'] ?>">
-            <div class="modal-contenido">
-                <span class="cerrar" onclick="cerrarModal(<?= $reporte['id'] ?>)">&times;</span>
-                <h2>Detalles del Reporte #<?= $reporte['id'] ?></h2>
+            <!-- Modal flotante -->
+            <div class="modal" id="modal-<?= $reporte['id'] ?>">
+                <div class="modal-contenido">
+                    <span class="cerrar" onclick="cerrarModal(<?= $reporte['id'] ?>)">&times;</span>
+                    <h2>Detalles del Reporte #<?= $reporte['id'] ?></h2>
 
-                <p><strong>Piso:</strong> <?= htmlspecialchars($reporte['piso']) ?></p>
-                <p><strong>Habitación:</strong> <?= htmlspecialchars($reporte['habitacion']) ?></p>
-                <p><strong>Estado:</strong> <?= htmlspecialchars($reporte['estado']) ?></p>
-                <p><strong>Reporte:</strong><br><?= nl2br(htmlspecialchars($reporte['reporte'])) ?></p>
+                    <p><strong>Piso:</strong> <?= htmlspecialchars($reporte['piso']) ?></p>
+                    <p><strong>Habitación:</strong> <?= htmlspecialchars($reporte['habitacion']) ?></p>
+                    <p><strong>Estado:</strong> <?= htmlspecialchars($reporte['estado']) ?></p>
+                    <p><strong>Reporte:</strong><br><?= nl2br(htmlspecialchars($reporte['reporte'])) ?></p>
 
-                <?php if (in_array($reporte['estado'], ['En Proceso', 'Finalizada'])): ?>
-                    <p><strong>Respuesta de Sistemas:</strong><br><?= $reporte['respuesta'] ?? 'Pendiente...' ?></p>
-                <?php endif; ?>
-
-                <p><strong>Fecha de Creación:</strong> <?= date('d/m/Y h:i a', strtotime($reporte['fecha_creacion'])) ?></p>
-
-                <p><strong>Fecha de Respuesta:</strong> 
-                   <?= $reporte['fecha_respuesta'] ? date('d/m/Y h:i a', strtotime($reporte['fecha_respuesta'])) : '00:00:00 a.m' ?>
-                </p>
-
-                <?php if ($reporte['imagen_antes'] || $reporte['imagen_despues']): ?>
-                <div class="contenedor-imagenes">
-                    <?php if ($reporte['imagen_antes']): ?>
-                        <div>
-                            <p>Antes:</p>
-                            <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=antes" alt="Antes de la reparación">
-                        </div>
+                    <?php if (in_array($reporte['estado'], ['En Proceso', 'Finalizada'])): ?>
+                        <p><strong>Respuesta de Sistemas:</strong><br><?= $reporte['respuesta'] ?? 'Pendiente...' ?></p>
                     <?php endif; ?>
-                    <?php if ($reporte['imagen_despues']): ?>
-                        <div>
-                            <p>Después:</p>
-                            <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=despues" alt="Después de la reparación">
-                        </div>
+
+                    <p><strong>Fecha de Creación:</strong> <?= date('d/m/Y h:i a', strtotime($reporte['fecha_creacion'])) ?></p>
+
+                    <p><strong>Fecha de Respuesta:</strong> 
+                    <?= $reporte['fecha_respuesta'] ? date('d/m/Y h:i a', strtotime($reporte['fecha_respuesta'])) : '00:00:00 a.m' ?>
+                    </p>
+
+                    <?php if ($reporte['imagen_antes'] || $reporte['imagen_despues']): ?>
+                    <div class="contenedor-imagenes">
+                        <?php if ($reporte['imagen_antes']): ?>
+                            <div>
+                                <p>Antes:</p>
+                                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=antes" alt="Antes de la reparación">
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($reporte['imagen_despues']): ?>
+                            <div>
+                                <p>Después:</p>
+                                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=despues" alt="Después de la reparación">
+                            </div>
+                        <?php endif; ?>
+                    </div>
                     <?php endif; ?>
+                    
+    <?php if ($reporte['estado'] !== 'Finalizada'): ?>
+        <form action="php/responder_reporte.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="reporte_id" value="<?= $reporte['id'] ?>">
+
+            <h3>Responder Solicitud</h3>
+
+            <label for="respuesta">Respuesta:</label><br>
+            <textarea name="respuesta" rows="4" required><?= htmlspecialchars($reporte['respuesta'] ?? '') ?></textarea><br><br>
+
+            <h4>Imágenes</h4>
+            <label>Antes:</label><br>
+            <?php if ($reporte['imagen_antes']): ?>
+                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=antes" style="max-width:150px;"><br>
+            <?php endif; ?>
+            <input type="file" name="imagen_antes" accept="image/*"><br><br>
+
+            <label>Después:</label><br>
+            <?php if ($reporte['imagen_despues']): ?>
+                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=despues" style="max-width:150px;"><br>
+            <?php endif; ?>
+            <input type="file" name="imagen_despues" accept="image/*"><br><br>
+
+            <label for="estado">Estado del reporte:</label><br>
+            <select name="estado" required>
+                <option value="Ingresada" <?= $reporte['estado'] === 'Ingresada' ? 'selected' : '' ?>>Ingresada</option>
+                <option value="En Proceso" <?= $reporte['estado'] === 'En Proceso' ? 'selected' : '' ?>>En Proceso</option>
+                <option value="Finalizada" <?= $reporte['estado'] === 'Finalizada' ? 'selected' : '' ?>>Finalizada</option>
+            </select><br><br>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+        <?php endif; ?> 
                 </div>
-                <?php endif; ?>
-                
-                <!-- Formulario de Reparación -->
-                <form action="php/responder_reporte.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="reporte_id" value="<?= $reporte['id'] ?>">
-
-                    <h3>Responder Solicitud</h3>
-
-                    <label for="respuesta">Respuesta:</label><br>
-                    <textarea name="respuesta" rows="4" required>Cordial saludo, se hace revisión de timbre de habitación</textarea><br><br>
-
-                    <h4>Imágenes</h4>
-                    <label>Antes:</label><br>
-                    <input type="file" name="imagen_antes" accept="image/*"><br><br>
-
-                    <label>Después:</label><br>
-                    <input type="file" name="imagen_despues" accept="image/*"><br><br>
-
-                    <label for="estado">Estado del reporte:</label><br>
-                    <select name="estado" required>
-                        <option value="Ingresada" <?= $reporte['estado'] === 'Ingresada' ? 'selected' : '' ?>>Ingresada</option>
-                        <option value="En Proceso" <?= $reporte['estado'] === 'En Proceso' ? 'selected' : '' ?>>En Proceso</option>
-                        <option value="Finalizada" <?= $reporte['estado'] === 'Finalizada' ? 'selected' : '' ?>>Finalizada</option>
-                    </select><br><br>
-
-                    <button type="submit">Aceptar</button>
-                </form>
-
             </div>
-        </div>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 
 <div class="paginacion">
     <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
@@ -184,6 +190,8 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
            <?= $i ?>
         </a>
     <?php endfor; ?>
+
+
 </div>
 
 

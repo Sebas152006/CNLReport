@@ -1,0 +1,102 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('../images/fondo_PC.png') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(1px);
+}
+
+/* CONTENEDOR GENERAL DEL PERFIL */
+.perfil-wrapper {
+  flex-grow: 1;
+  padding: 40px 20px;
+  margin-left: 60px; /* ancho del menú lateral fijo */
+  max-width: 650px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto; /* centrado horizontal */
+}
+
+label {
+  font-weight: bold;
+  color: #2C1E53;
+  margin-top: 10px;
+}
+
+/* FORMULARIOS */
+.datos-usuario,
+.cambio-clave {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.perfil-wrapper h2,
+.perfil-wrapper h3 {
+  color: #343062;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight:550;
+  border: 1px solid #2C1E53;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  color: #353044;
+}
+
+input[readonly] {
+      font-size: 14px;
+    font-weight:550;
+    padding: 10px;
+    border: 1px solid #2C1E53;
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    color: #353044;
+}
+
+.perfil-wrapper button {
+  margin-top: 20px;
+  background-color: #343062;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.perfil-wrapper button:hover {
+  background-color: #00B6B0;
+  color: #2C1E53;
+}
+
+/* RESPONSIVO */
+@media (max-width: 750px) {
+  .perfil-wrapper {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .perfil-wrapper button {
+    width: 100%;
+  }
+}

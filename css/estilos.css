@@ -7,20 +7,27 @@
 }
 
 body {
-    display: flex;
+  display: flex;
 }
 
-/* Menú lateral */
 .menu {
-    width: 60px;
-    height: 100vh;
-    background: #343062;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: width 0.3s;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100lvh;
+  background-color: #343062;
+  z-index: 1000;
+  overflow-y: auto;
 }
+
+
+.menu-items {
+  flex-grow: 1;
+  overflow-y: auto; /* Scroll interno solo para elementos del menú */
+}
+
+
 
 /* Botón de despliegue */
 .menu-toggle {
@@ -31,13 +38,6 @@ body {
     font-size: 30px;
     color: white;
     cursor: pointer;
-}
-
-/* Contenedor de elementos */
-.menu-items {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
 }
 
 /* Estilos de cada opción del menú */

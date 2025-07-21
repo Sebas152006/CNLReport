@@ -29,7 +29,6 @@ body {
     color: white;
 }
 
-
 h1 {
     color: #2C1E53;
     margin-top: 0px;
@@ -122,14 +121,19 @@ th {
 .contenedor-imagenes {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
     margin-top: 15px;
     gap: 20px;
 }
 
 .contenedor-imagenes div {
     text-align: center;
+    width: 50%;
+    max-height: 400px;
 }
+
+.contenedor-imagenes img {
+    max-height: 350px;
+} 
 
 .contenedor-imagenes p {
     margin-bottom: 6px;

@@ -11,7 +11,17 @@ require '../../php/conexion_be.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/reporte.css">
     <link rel="stylesheet" href="../../css/estilos.css">
-    <title>CNLReport</title>
+    <title>Reporte de Timbres</title>
+    <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+    <script>
+        const titulos = ["CNLReport", "Reporte de Timbres"];
+        let index = 0;
+
+        setInterval(() => {
+            document.title = titulos[index];
+            index = (index + 1) % titulos.length;
+        }, 3000);
+    </script>
 </head>
 
 <body>
@@ -21,7 +31,7 @@ require '../../php/conexion_be.php';
     <!-- Formulario de reporte de timbres -->
     <div class="formulario_fondo">
         <form action="../../php/guardar_reporte.php" method="POST">
-            <h2>Reporte de Timbres</h2>
+            <h1>Reporte de Timbres</h1>
             <!-- Extrae el nombre del usuario que realizo el reporte por medio del ID -->
             <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
 
@@ -61,7 +71,14 @@ require '../../php/conexion_be.php';
                 <option value="Pulsador Dañado">Pulsador Dañado</option>
                 <option value="Falta Pulsador">Falta Pulsador</option>
                 <option value="Otro">Otro</option>
+                
             </select>
+
+            <div id="detalle_otro" style="display: none;">
+                <p>Especificar otro tipo de daño</p>
+                <textarea class="otro" id="otro_dano" placeholder="Describe el daño aquí..."></textarea>
+            </div>
+
             
             <!-- Área de texto para el reporte -->
             <p>Reporte</p>
@@ -72,5 +89,17 @@ require '../../php/conexion_be.php';
             <button type="submit">ENVIAR REPORTE</button>
         </form>
     </div>
+    <script>
+        const selectDano = document.getElementById("select_dano");
+        const detalleOtro = document.getElementById("detalle_otro");
+
+        selectDano.addEventListener("change", function () {
+            if (this.value === "Otro") {
+            detalleOtro.style.display = "block";
+            } else {
+            detalleOtro.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,166 @@
+form {
+    height: 30px;
+}
+
+
+/* ========= TABLA DE USUARIOS ========= */
+table {
+    margin: 50px;
+  width: 85%;
+  border-collapse: collapse;
+  background-color: rgba(52, 48, 98, 0.85);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+thead {
+  background-color: #494290;
+  color: #fff;
+}
+
+thead th {
+  padding: 12px 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+tbody td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ========= INPUTS DENTRO DE LA TABLA ========= */
+table input[type="text"],
+table input[type="email"],
+table input[type="password"] {
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2d2a4d;
+  color: #fff;
+}
+
+/* ========= BOTONES DE ACCIÓN ========= */
+table button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+
+table button:hover {
+  transform: scale(1.15);
+}
+
+table img {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* ========= RESPONSIVO ========= */
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  table input,
+  table button {
+    flex-grow: 1;
+  }
+}
+
+
+.agregar-usuario {
+  padding: 10px 20px;
+  background-color: #343062;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-contenido {
+  background-color: #fff;
+  color: #000;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal-contenido input,
+.modal-contenido select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-contenido button {
+  background-color: #343062;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cerrar {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #343062;
+}

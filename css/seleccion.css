@@ -1,0 +1,82 @@
+
+body {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('../images/fondo_PC.png') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(1px);
+    padding: 50px;   
+}
+
+.cartas {
+    align-items: center;
+    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    width: 100%;
+    max-width: 85%;
+    gap: 20px; /* Espacio entre las cartas */
+}
+
+@media (min-width: 540px) {
+    .cartas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 750px) {
+    .cartas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .cartas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.carta {
+    position: relative;
+    padding-bottom: 150%;
+}
+
+.fondo_carta {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    border-radius: 24px;
+    filter: brightness(.75) saturate(1.2) contrast(.85);
+    transition: .3s;
+}
+
+.contenido-carta {
+    position: absolute;
+    padding: 24px;
+    font-family: arial, sans-serif;
+    color: white;
+}
+
+.contenido-carta p {
+    color: rgba(255, 255, 255, .6);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.contenido-carta h3 {
+    font-size: 1.9rem;
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+}
+
+.carta:hover .fondo_carta {
+    transform: scale(1.05);
+}
+
+.cartas:hover > .carta:not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.95);
+}

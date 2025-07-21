@@ -15,7 +15,8 @@ body {
 
 
 /* Título */
-h2 {
+h1 {
+    font-size: 28px;
     text-align: center;
     color: #2C1E53;
     margin-bottom: 15px;
@@ -39,7 +40,7 @@ header {
 
 /* Contenedor del formulario */
 form {
-    background-color: rgba(0, 182, 176, 0.397); /* turquesa translúcido */
+    background-color: rgba(255, 255, 255, 0.397);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(44, 30, 83, 0.2);
@@ -73,6 +74,11 @@ select {
 
 textarea {
     height: 80px;
+}
+
+.otro{
+    width: 100%;
+    margin-top: 10px;
 }
 
 .grupo1 {
@@ -110,23 +116,6 @@ button[type="submit"]:hover {
     background-color: #00B6B0;
     color: #2C1E53;
 }
-
-/* Cerrar sesión */
-.cerrar_sesion {
-    margin-top: 20px;
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.cerrar_sesion:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 
 @media (max-width: 600px) {
     body {

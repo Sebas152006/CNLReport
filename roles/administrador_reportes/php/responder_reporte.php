@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$respuesta, $estado, $fecha_respuesta, $imagenAntes, $imagenDespues, $id]);
 
-    header("Location: gestionar_reportes.php");
+    header("Location: ../gestionar_reportes.php");
     exit;
 }
 ?>
