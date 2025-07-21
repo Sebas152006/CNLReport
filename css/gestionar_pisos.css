@@ -1,0 +1,83 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../../images/fondo_PC.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  backdrop-filter: blur(2px);
+}
+
+.contenedor-usuarios {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.contenedor-usuarios h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #343062;
+  margin-bottom: 20px;
+}
+
+.datos-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #2C1E53;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #2C1E53;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #353044;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #343062;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #00B6B0;
+  color: #2C1E53;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contenedor-usuarios {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .contenedor-usuarios h2 {
+    font-size: 20px;
+  }
+
+  input,
+  select,
+  button[type="submit"] {
+    font-size: 15px;
+  }
+}

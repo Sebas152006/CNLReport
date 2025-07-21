@@ -31,7 +31,15 @@ $stmt = $conexion->prepare($query);
 $stmt->bind_param("iisss", $usuario_id, $piso, $habitacion, $reporte, $tipo_dano);
 
 if ($stmt->execute()) {
-    header("Location: ../roles/usuarios_reportes/reporte_Timbres.php"); // Redirige después de guardar
+    // Verificar el rol del usuario
+    $rol = $_SESSION['rol'] ?? null;
+
+    if ($rol == 1) {
+        header("Location: ../roles/administrador_reportes/reporte_Timbres.php");
+    } else {
+        header("Location: ../roles/usuarios_reportes/reporte_Timbres.php");
+    }
+    exit;
 } else {
     die("Error al guardar el reporte: " . $stmt->error);
 }

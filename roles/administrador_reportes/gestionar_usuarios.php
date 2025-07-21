@@ -27,7 +27,10 @@ $result = mysqli_query($conexion, $sql);
     <body>
         <!-- Importa el menu lateral -->
         <?php include '../../menu_lateral/menu2.php'; ?>
-<button id="abrir-modal" class="agregar-usuario">➕ Agregar Usuario</button>
+        <div class="contenedor-usuarios">
+  <div class="encabezado-usuarios">
+    <button id="abrir-modal" class="agregar-usuario">➕ Agregar Usuario</button>
+  </div>
 
         <table>
             <thead>
@@ -43,7 +46,6 @@ $result = mysqli_query($conexion, $sql);
                     <th>Contraseña</th>
                     <th>Editar</th>
                     <th>Guardar</th>
-                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,14 +68,6 @@ $result = mysqli_query($conexion, $sql);
                             <button type="submit" name="btnGuardar" value="<?php echo $mostrar['id']; ?>" disabled><img src="images/3.png" alt="Guardar"></button>
                         </td>
                     </form>
-                    <td>
-                        <form action="eliminar.php" method="POST" class="eliminar2">
-                            <input type="hidden" name="txtId" value="<?php echo $mostrar['id']; ?>">
-                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
-                                <img class="eliminar" src="images/2.png" alt="Eliminar">
-                            </button>
-                        </form>
-                    </td>
                 </tr>
                 <?php } ?>
             </tbody>
@@ -83,7 +77,7 @@ $result = mysqli_query($conexion, $sql);
   <div class="modal-contenido">
     <span id="cerrar-modal" class="cerrar">&times;</span>
     <h2>Agregar Usuario</h2>
-    <form method="POST" action="ruta_del_archivo_que_agrega.php">
+    <form method="POST" action="php/registrar_usuario.php">
       <input type="text" name="nombre" placeholder="Nombre" required>
       <input type="text" name="apellido" placeholder="Apellido" required>
       <input type="text" name="documento" placeholder="Documento" required>
@@ -99,7 +93,7 @@ $result = mysqli_query($conexion, $sql);
     </form>
   </div>
 </div>
-
+</div>
 <!-- Script para manejar el modal -->
 <script>
 document.getElementById("abrir-modal").onclick = function () {

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Configuración de redirección por rol
             $redirecciones = [
-                1 => "../admin.php",
+                1 => "../roles/administrador_reportes/seleccion.php",
                 2 => "../roles/usuarios_reportes/seleccion.php",
             ];
 

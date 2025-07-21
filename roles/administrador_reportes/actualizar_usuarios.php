@@ -36,7 +36,7 @@ if (isset($_POST['btnGuardar'])) {
 
     if (mysqli_query($conexion, $sql)) {
         echo "<script>alert('Usuario actualizado con éxito');</script>";
-        header("Location: control_Usuarios.php");
+        header("Location: gestionar_usuarios.php");
         exit();
     } else {
         echo "<script>alert('Error al actualizar el usuario: " . mysqli_error($conexion) . "');</script>";
