@@ -1,7 +1,14 @@
 <?php
+session_start();
 require '../../../php/conexion_be.php';
 
-// CREA LA CONEXIÓN PDO AQUÍ
+// Validar sesión
+if (!isset($_SESSION['id'])) {
+    die("Error: Usuario no autenticado.");
+}
+$usuario_id = $_SESSION['id'];
+
+// Conexión PDO
 $pdo = new PDO("mysql:host=localhost;dbname=cnl_report", 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -11,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = $_POST['estado'];
     $fecha_respuesta = date('Y-m-d H:i:s');
 
-    // Función para comprimir imagen
+    // Función de compresión
     function comprimirImagen($archivoTmp, $calidad = 70) {
         $info = getimagesize($archivoTmp);
         $tipo = $info['mime'];
@@ -39,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         return $imagenComprimida;
     }
 
+    // Imágenes
     $imagenAntes = null;
     $imagenDespues = null;
 
@@ -50,15 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagenDespues = comprimirImagen($_FILES['imagen_despues']['tmp_name']);
     }
 
+    // Actualización SQL con usuario que responde
     $sql = "UPDATE reportes 
             SET respuesta = ?, 
                 estado = ?, 
                 fecha_respuesta = ?, 
                 imagen_antes = COALESCE(?, imagen_antes), 
-                imagen_despues = COALESCE(?, imagen_despues) 
+                imagen_despues = COALESCE(?, imagen_despues),
+                respondido_por = ?
             WHERE id = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$respuesta, $estado, $fecha_respuesta, $imagenAntes, $imagenDespues, $id]);
+    $stmt->execute([
+        $respuesta,
+        $estado,
+        $fecha_respuesta,
+        $imagenAntes,
+        $imagenDespues,
+        $usuario_id,
+        $id
+    ]);
 
     header("Location: ../gestionar_reportes.php");
     exit;

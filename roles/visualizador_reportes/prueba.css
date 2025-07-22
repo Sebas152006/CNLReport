@@ -1,0 +1,94 @@
+/* Fondo y estructura base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../../images/fondo_PC.png') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+  margin: 0;
+  padding: 20px;
+}
+
+.contenedor-estadisticas {
+  width: 800px;
+  margin: 12vh auto;
+  background-color: rgba(255, 255, 255, 0.96);
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.contenedor-estadisticas h2 {
+  text-align: center;
+  color: #343062;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+/* Grilla de tarjetas */
+.grid-metricas,
+.grid-top3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Tarjetas generales */
+.card {
+  background-color: rgba(52, 48, 98, 0.92);
+  color: white;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  color: #00B6B0;
+}
+
+/* Tarjetas de tipo de daño */
+.card-dano {
+  background-color: rgba(52, 48, 98, 0.95);
+}
+
+.card-dano p {
+  color: #00B6B0;
+  font-size: 28px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 800px) {
+  .contenedor-estadisticas {
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 24px;
+  }
+
+  .contenedor-estadisticas h2 {
+    font-size: 22px;
+  }
+}

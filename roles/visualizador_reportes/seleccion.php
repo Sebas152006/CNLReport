@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/estilos.css">
-    <link rel="stylesheet" href="../../css/seleccion2.css">
+    <link rel="stylesheet" href="../../css/seleccion.css">
     <title>Menú</title>
     <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
     <script>
@@ -19,11 +19,11 @@
 </head>
 <body>
     <!-- Importa el menu lateral -->
-    <?php include '../../menu_lateral/menu2.php'; ?>
+    <?php include '../../menu_lateral/menu.php'; ?>
 
     <div class="cartas">
         <!-- Timbres -->
-        <a href="reporte_Timbres.php" class="carta">
+        <a href="prueba.php" class="carta">
             <div class="fondo_carta"
             style="background-image: url('images/timbre.jpeg');"></div>
             <div class="contenido-carta">
@@ -42,46 +42,6 @@
             </div>
         </a>
 
-        <!-- Gestionar Reportes -->
-        <a href="gestionar_reportes.php" class="carta">
-            <div class="fondo_carta"
-            style="background-image: url('images/Gestionar_Reportes.png');"></div>
-            <div class="contenido-carta">
-                <p>Reportes</p>
-                <h3>Gestionar Reportes</h3>
-            </div>
-        </a>
-
-        <!-- Gestionar Usuarios -->
-        <a href="gestionar_usuarios.php" class="carta">
-            <div class="fondo_carta"
-            style="background-image: url('images/Gestionar_Usuarios.png');"></div>
-            <div class="contenido-carta">
-                <p>Usuarios</p>
-                <h3>Gestionar Usuarios</h3>
-            </div>
-        </a>
-
-        <!-- Gestionar Pisos -->
-        <a href="gestionar_pisos.php" class="carta">
-            <div class="fondo_carta"
-            style="background-image: url('images/Gestionar_Pisos.png');"></div>
-            <div class="contenido-carta">
-                <p>Pisos</p>
-                <h3>Gestionar Pisos</h3>
-            </div>
-        </a>
-
-        <!-- Importar Reportes -->
-        <a href="importar_reportes.php" class="carta">
-            <div class="fondo_carta"
-            style="background-image: url('images/Importar_Reportes.png');"></div>
-            <div class="contenido-carta">
-                <p>Reportes</p>
-                <h3>Importar Reportes</h3>
-            </div>
-        </a>
-
         <!-- Gestionar Cuenta -->
         <a href="contrasenia.php" class="carta">
             <div class="fondo_carta"
@@ -91,9 +51,6 @@
                 <h3>Mi Cuenta</h3>
             </div>
         </a>
-
-
-
     </div>
     
 </body>

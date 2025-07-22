@@ -20,8 +20,18 @@ $result = mysqli_query($conexion, $sql);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../css/usuarios_admin.css">
-        <link rel="stylesheet" href="../../css/estilos.css">
-        <title>GreenShop</title>
+        <link rel="stylesheet" href="../../css/estilos2.css">
+        <title>Gestionar Usuarios</title>
+        <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+        <script>
+            const titulos = ["CNLReport", "Gestionar Usuarios"];
+            let index = 0;
+
+            setInterval(() => {
+                document.title = titulos[index];
+                index = (index + 1) % titulos.length;
+            }, 3000);
+        </script>
         <script src="script4.js"></script>
     </head>
     <body>

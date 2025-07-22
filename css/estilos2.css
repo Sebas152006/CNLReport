@@ -15,7 +15,7 @@ body {
   top: 0;
   left: 0;
   width: 60px;
-  height: 100%;
+  height: 100lvh;
   background-color: #343062;
   z-index: 1000;
   overflow-y: auto;

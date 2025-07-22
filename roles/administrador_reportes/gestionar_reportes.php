@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 $pdo = new PDO("mysql:host=localhost;dbname=cnl_report", 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$porPagina = 20;
+$porPagina = 8;
 $pagina = isset($_GET['pagina']) ? max(1, intval($_GET['pagina'])) : 1;
 $inicio = ($pagina - 1) * $porPagina;
 
@@ -39,7 +39,13 @@ if (!empty($_GET['estado'])) {
 
 $where = $filtros ? "WHERE " . implode(" AND ", $filtros) : "";
 
-$sql = "SELECT * FROM reportes $where ORDER BY id DESC LIMIT $inicio, $porPagina";
+$sql = "SELECT reportes.*, usuarios.primer_nombre AS nombre_responde 
+        FROM reportes 
+        LEFT JOIN usuarios ON reportes.respondido_por = usuarios.id 
+        $where 
+        ORDER BY reportes.id DESC 
+        LIMIT $inicio, $porPagina";
+
 $stmt = $pdo->prepare($sql);
 $stmt->execute($parametros);
 $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -62,6 +68,16 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/estilos.css">
     <link rel="stylesheet" href="../../css/gestion_reportes.css">
+    <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+    <script>
+        const titulos = ["CNLReport", "Gestionar Reportes"];
+        let index = 0;
+
+        setInterval(() => {
+            document.title = titulos[index];
+            index = (index + 1) % titulos.length;
+        }, 3000);
+    </script>
 </head>
 
 <body>
@@ -117,6 +133,11 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
                     <p><strong>Habitación:</strong> <?= htmlspecialchars($reporte['habitacion']) ?></p>
                     <p><strong>Estado:</strong> <?= htmlspecialchars($reporte['estado']) ?></p>
                     <p><strong>Reporte:</strong><br><?= nl2br(htmlspecialchars($reporte['reporte'])) ?></p>
+
+
+                    <?php if (!empty($reporte['nombre_responde'])): ?>
+    <p><strong>Respondido por:</strong> <?= htmlspecialchars($reporte['nombre_responde']) ?></p>
+<?php endif; ?>
 
                     <?php if (in_array($reporte['estado'], ['En Proceso', 'Finalizada'])): ?>
                         <p><strong>Respuesta de Sistemas:</strong><br><?= $reporte['respuesta'] ?? 'Pendiente...' ?></p>

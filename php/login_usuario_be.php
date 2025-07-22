@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $redirecciones = [
                 1 => "../roles/administrador_reportes/seleccion.php",
                 2 => "../roles/usuarios_reportes/seleccion.php",
+                3 => "../roles/visualizador_reportes/seleccion.php",
             ];
 
             // Redirigir según el rol o mostrar error si el rol no existe

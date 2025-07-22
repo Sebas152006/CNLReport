@@ -21,11 +21,11 @@
         </a>
         <!--Gestionar Usuarios-->
         <a href="gestionar_usuarios.php" class="<?php echo ($current_page == 'gestionar_usuarios.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Gestionar_Perfil.png" alt="MIS REPORTES"><span>Mis Reportes</span>
+            <img src="../../menu_lateral/images/Gestionar_Perfil.png" alt="MIS REPORTES"><span>Gestionar Usuarios</span>
         </a>
         <!--Mi Cuenta-->
         <a href="contrasenia.php" class="<?php echo ($current_page == 'mi_Cuenta.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Perfil.png" alt="MI CUENTA"><span>Mis Reportes</span>
+            <img src="../../menu_lateral/images/Perfil.png" alt="MI CUENTA"><span>Mis Cuenta</span>
         </a>
         <!--Cerrar Sesión-->
         <a href="../../php/cerrar_Sesion.php" class="<?php echo ($current_page == 'php/cerrar_Sesion.php') ? 'active' : ''; ?>">

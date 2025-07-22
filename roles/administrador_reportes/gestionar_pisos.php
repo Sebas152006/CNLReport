@@ -12,9 +12,19 @@ $resultado_pisos = $conexion->query($query_pisos);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Pisos y Habitaciones</title>
+  <title>Gestión De Pisos</title>
   <link rel="stylesheet" href="../../css/gestionar_pisos.css">
   <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+  <script>
+      const titulos = ["CNLReport", "Gestión De Pisos"];
+      let index = 0;
+
+      setInterval(() => {
+          document.title = titulos[index];
+          index = (index + 1) % titulos.length;
+      }, 3000);
+  </script>
 </head>
 <body>
   <?php include '../../menu_lateral/menu2.php'; ?>

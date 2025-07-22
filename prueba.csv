@@ -1,0 +1,5 @@
+usuario_id,piso,habitacion,reporte,tipo_dano,fecha,estado,respuesta,fecha_creacion,fecha_respuesta,respondido_por
+5,9,02A,"Daño eléctrico en interruptor","Daño Fisico",2024-07-20 10:24:12,"Finalizada","Reparación realizada con cambio de pieza",2024-07-20 10:24:12,2025-07-20 13:05:47,4
+5,9,02A,"Timbre desprendido sin respuesta","Timbre Arrancado",2023-07-19 11:12:38,"Finalizada","EL Timbre se reviso y esta en mal estado",2023-07-19 11:12:38,"2023-07-20 11:12:38",4
+5,9,02A,"Fuga de agua leve en lavamanos","Timbre Arrancado",2019-07-17 08:55:03,"Finalizada","Pendiente inspección",2019-07-17 08:55:03,2025-07-17 08:55:03,4
+5,9,02A,"Mancha en techo por humedad","Falta Pulsador",2020-07-18 14:30:47,"Finalizada","Se realizó sellado con impermeabilizante",2025-07-18 14:30:47,2025-07-19 09:20:15,4
