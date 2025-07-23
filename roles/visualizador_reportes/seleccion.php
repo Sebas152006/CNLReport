@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/estilos2.css">
     <link rel="stylesheet" href="../../css/seleccion.css">
     <title>Menú</title>
     <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
@@ -19,16 +19,16 @@
 </head>
 <body>
     <!-- Importa el menu lateral -->
-    <?php include '../../menu_lateral/menu.php'; ?>
+    <?php include '../../menu_lateral/menu3.php'; ?>
 
     <div class="cartas">
         <!-- Timbres -->
-        <a href="prueba.php" class="carta">
+        <a href="estadisticas_Generales.php" class="carta">
             <div class="fondo_carta"
             style="background-image: url('images/timbre.jpeg');"></div>
             <div class="contenido-carta">
-                <p>Reporte</p>
-                <h3>Timbres</h3>
+                <p>Estadisticas</p>
+                <h3>Generales</h3>
             </div>
         </a>
 

@@ -11,7 +11,7 @@ $usuario_id = $_SESSION['id'];
 $pdo = new PDO("mysql:host=localhost;dbname=cnl_report", 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$porPagina = 20;
+$porPagina = 8;
 $pagina = isset($_GET['pagina']) ? max(1, intval($_GET['pagina'])) : 1;
 $inicio = ($pagina - 1) * $porPagina;
 

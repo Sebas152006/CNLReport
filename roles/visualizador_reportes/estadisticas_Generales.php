@@ -33,12 +33,30 @@ $topDanos = $conexion->query($sqlTopDanos);
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Estadísticas de Reportes</title>
-  <link rel="stylesheet" href="prueba.css" />
+  <title>Estadísticas Generales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/estadisticas_generales.css" />
   <link rel="stylesheet" href="../../css/estilos2.css" />
+  <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+    <script>
+        const titulos = ["CNLReport", "Estadísticas Generales"];
+        let index = 0;
+
+        setInterval(() => {
+            document.title = titulos[index];
+            index = (index + 1) % titulos.length;
+        }, 3000);
+    </script>
 </head>
 <body>
-  <?php include '../../menu_lateral/menu2.php'; ?>
+  <?php include '../../menu_lateral/menu3.php'; ?>
+
+<form method="GET" class="form-fechas">
+  <label>Desde: <input type="date" name="desde" value="<?= $_GET['desde'] ?? '' ?>"></label>
+  <label>Hasta: <input type="date" name="hasta" value="<?= $_GET['hasta'] ?? '' ?>"></label>
+  <button type="submit">Aplicar filtro</button>
+</form>
+
 
   <<div class="contenedor-estadisticas">
   <h2>Estadísticas Globales de Reportes</h2>
