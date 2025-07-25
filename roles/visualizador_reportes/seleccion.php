@@ -33,7 +33,7 @@
         </a>
 
         <!-- Mis Reportes -->
-        <a href="consultar_reportes.php" class="carta">
+        <a href="estadisticas.php" class="carta">
             <div class="fondo_carta"
             style="background-image: url('images/Gestion_Reporte.png');"></div>
             <div class="contenido-carta">

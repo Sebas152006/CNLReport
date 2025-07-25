@@ -51,33 +51,23 @@ $topDanos = $conexion->query($sqlTopDanos);
 <body>
   <?php include '../../menu_lateral/menu3.php'; ?>
 
-<form method="GET" class="form-fechas">
-  <label>Desde: <input type="date" name="desde" value="<?= $_GET['desde'] ?? '' ?>"></label>
-  <label>Hasta: <input type="date" name="hasta" value="<?= $_GET['hasta'] ?? '' ?>"></label>
-  <button type="submit">Aplicar filtro</button>
-</form>
-
-
-  <<div class="contenedor-estadisticas">
-  <h2>Estadísticas Globales de Reportes</h2>
-  <div class="grid-metricas">
+  <div class="contenedor-estadisticas">
+    <h2>Estadísticas Globales de Reportes</h2>
+    <div class="grid-metricas">
     <div class="card"><h3>Total de Reportes</h3><p><?= $total ?></p></div>
     <div class="card"><h3>Ingresados</h3><p><?= $conteo['Ingresada'] ?></p></div>
     <div class="card"><h3>En Proceso</h3><p><?= $conteo['En Proceso'] ?></p></div>
     <div class="card"><h3>Finalizados</h3><p><?= $conteo['Finalizada'] ?></p></div>
   </div>
 
-<h2>Top 3 Tipos de Daño Más Reportados</h2>
-<div class="grid-top3">
-  <?php while ($dano = $topDanos->fetch_assoc()): ?>
-    <div class="card card-dano">
-      <h3><?= htmlspecialchars($dano['tipo_dano']) ?></h3>
-      <p><?= $dano['cantidad'] ?> reportes</p>
-    </div>
-  <?php endwhile; ?>
-</div>
-
-
-
+  <h2>Top 3 Tipos de Daño Más Reportados</h2>
+  <div class="grid-top3">
+    <?php while ($dano = $topDanos->fetch_assoc()): ?>
+      <div class="card card-dano">
+        <h3><?= htmlspecialchars($dano['tipo_dano']) ?></h3>
+        <p><?= $dano['cantidad'] ?> reportes</p>
+      </div>
+    <?php endwhile; ?>
+  </div>
 </body>
 </html>

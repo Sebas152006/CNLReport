@@ -204,13 +204,30 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
         </tbody>
     </table>
 
+<?php
+$maxLinks = 10; // máximo de enlaces por bloque
+$bloqueActual = ceil($pagina / $maxLinks);
+$inicio = ($bloqueActual - 1) * $maxLinks + 1;
+$fin = min($inicio + $maxLinks - 1, $totalPaginas);
+?>
+
 <div class="paginacion">
-    <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+    <?php if ($inicio > 1): ?>
+        <a href="?<?= http_build_query(array_merge($_GET, ['pagina' => $inicio - 1])) ?>">&laquo;</a>
+    <?php endif; ?>
+
+    <?php for ($i = $inicio; $i <= $fin; $i++): ?>
         <a href="?<?= http_build_query(array_merge($_GET, ['pagina' => $i])) ?>" 
            class="<?= $i == $pagina ? 'pagina-actual' : '' ?>">
            <?= $i ?>
         </a>
     <?php endfor; ?>
+
+    <?php if ($fin < $totalPaginas): ?>
+        <a href="?<?= http_build_query(array_merge($_GET, ['pagina' => $fin + 1])) ?>">&raquo;</a>
+    <?php endif; ?>
+</div>
+
 
 
 </div>
