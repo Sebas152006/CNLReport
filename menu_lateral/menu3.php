@@ -7,25 +7,25 @@
         <a href="seleccion.php" class="<?php echo ($current_page == 'seleccion.php') ? 'active' : ''; ?>">
             <img src="../../menu_lateral/images/Inicio.png" alt="INICIO"><span>Inicio</span>
         </a>
-        <!--Reportar Timbre-->
+        <!--Estadisticas Generales-->
         <a href="estadisticas_Generales.php" class="<?php echo ($current_page == 'estadisticas_Generales.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Reportes.png" alt="REPORTES"><span>Estadisticas Generales</span>
+            <img src="../../menu_lateral/images/Reportes.png" alt="ESTADISTICAS GENERALES"><span>Estadisticas Generales</span>
         </a>
-        <!--Mis Reportes-->
-        <a href="consultar_reportes.php" class="<?php echo ($current_page == 'consultar_reportes.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Consulta_Reportes.png" alt="MIS REPORTES"><span>Mis Reportes</span>
+        <!--EStadisticas Por Habitacion-->
+        <a href="estadistica_Habitacion.php" class="<?php echo ($current_page == 'estadistica_Habitacion.php') ? 'active' : ''; ?>">
+            <img src="../../menu_lateral/images/Consulta_Reportes.png" alt="ESTADISTICAS POR HABITACION"><span>Estadisticas Por Habitación</span>
         </a>
-        <!--Gestionar Reportes-->
-        <a href="gestionar_reportes.php" class="<?php echo ($current_page == 'gestionar_reportes.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Gestionar_Reportes.png" alt="GESTIONAR MIS REPORTES"><span>Gestionar mis Reportes</span>
+        <!--Estadisticas Por Piso-->
+        <a href="estadistica_Piso.php" class="<?php echo ($current_page == 'estadistica_Piso.php') ? 'active' : ''; ?>">
+            <img src="../../menu_lateral/images/Gestionar_Reportes.png" alt="ESTADISTICAS POR PISO"><span>Estadisticas Por Piso</span>
         </a>
-        <!--Gestionar Usuarios-->
-        <a href="gestionar_usuarios.php" class="<?php echo ($current_page == 'gestionar_usuarios.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Gestionar_Perfil.png" alt="MIS REPORTES"><span>Gestionar Usuarios</span>
+        <!--Estadisticas Top-->
+        <a href="estadistica_Top.php" class="<?php echo ($current_page == 'estadistica_Top.php') ? 'active' : ''; ?>">
+            <img src="../../menu_lateral/images/Gestionar_Perfil.png" alt="ESTADISTICAS TOP"><span>Estadisticas Top</span>
         </a>
         <!--Mi Cuenta-->
-        <a href="contrasenia.php" class="<?php echo ($current_page == 'mi_Cuenta.php') ? 'active' : ''; ?>">
-            <img src="../../menu_lateral/images/Perfil.png" alt="MI CUENTA"><span>Mis Cuenta</span>
+        <a href="contrasenia.php" class="<?php echo ($current_page == 'contrasenia.php') ? 'active' : ''; ?>">
+            <img src="../../menu_lateral/images/Perfil.png" alt="MI CUENTA"><span>Mi Cuenta</span>
         </a>
         <!--Cerrar Sesión-->
         <a href="../../php/cerrar_Sesion.php" class="<?php echo ($current_page == 'php/cerrar_Sesion.php') ? 'active' : ''; ?>">

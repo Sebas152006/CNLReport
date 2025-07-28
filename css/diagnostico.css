@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: url('../../images/fondo_PC.png') no-repeat center center fixed;
+  background: url('../images/fondo_PC.png') no-repeat center center fixed;
   background-size: cover;
   backdrop-filter: blur(2px);
   margin: 0;
@@ -9,6 +9,7 @@ body {
 
 .contenedor-estadisticas {
   max-width: 960px;
+  width: 700px;
   margin: 80px auto;
   background-color: rgba(255,255,255,0.96);
   padding: 30px 20px;
