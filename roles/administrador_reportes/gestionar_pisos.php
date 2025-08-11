@@ -48,7 +48,7 @@ $resultado_pisos = $conexion->query($query_pisos);
       </select>
 
       <label for="numero_habitacion">Número de habitación:</label>
-      <input type="number" name="numero_habitacion" id="numero_habitacion" required>
+      <input type="text" name="numero_habitacion" id="numero_habitacion" required>
       <button type="submit">Registrar Habitación</button>
     </form>
   </div>

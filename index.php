@@ -29,7 +29,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['rol'])) {
             <div class="ingreso_usuario">
                 <!--Formulario de inicio de sesion-->
                 <form action="php/login_usuario_be.php" class="formulario_login" method="POST">
-                    <p>Correo Electrónico</p>
+                    <p>Número De Documento</p>
                     <input type="text" name="numero_documento" required>
                     <p>Contraseña</p>
                     <input type="password" name="contrasenia" required>
