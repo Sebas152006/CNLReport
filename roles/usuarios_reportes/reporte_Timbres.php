@@ -43,7 +43,7 @@ require '../../php/conexion_be.php';
                         <option value="">Selecciona un piso</option>
                         <?php
                             require '../../php/conexion_be.php';
-                            $query_pisos = "SELECT * FROM pisos";
+                            $query_pisos = "SELECT * FROM pisos ORDER BY numero ASC";
                             $resultado_pisos = $conexion->query($query_pisos);
                             while ($fila = $resultado_pisos->fetch_assoc()) {
                                 echo '<option value="' . $fila['numero'] . '">' . $fila['numero'] . '</option>';
@@ -51,17 +51,26 @@ require '../../php/conexion_be.php';
                         ?>
                     </select>
                 </div>
-
-                <!-- Muestra las habitaciones disponibles por piso -->
+                
                 <div class="campo">
+                    <p>Fase</p>
+                    <select name="fase" id="select_fase" required>
+                        <option value="">Selecciona una fase</option>
+                        <option value="Fase 1">Fase 1</option>
+                        <option value="Fase 2">Fase 2</option>
+                    </select>
+                </div>
+            </div>
+            
+                <!-- Muestra las habitaciones disponibles por piso -->
+                
                 <p>Habitación</p>
                 <select name="habitacion" id="select_habitacion" required>
                     <option value="">Selecciona una habitación</option>
                     <script src="js/habitaciones.js"></script>
                 </select>
-                </div>
-            </div>
-            
+                
+
             <!-- Muestra los tipos de daños disponibles -->
             <p>Tipo de Daño</p>
             <select name="tipo_dano" id="select_dano" required>

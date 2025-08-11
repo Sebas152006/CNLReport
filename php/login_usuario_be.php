@@ -3,13 +3,13 @@ session_start();
 include 'conexion_be.php'; // Usa la nueva conexión segura
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = $_POST['correo'];
+    $numero_documento = $_POST['numero_documento'];
     $contrasenia = $_POST['contrasenia'];
 
     // Consulta segura con `prepare()`
-    $sql = "SELECT id, primer_nombre, rol, contrasenia FROM usuarios WHERE correo = ?";
+    $sql = "SELECT id, primer_nombre, rol, contrasenia FROM usuarios WHERE numero_documento = ?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("s", $correo);
+    $stmt->bind_param("s", $numero_documento);
     $stmt->execute();
     $result = $stmt->get_result();
 

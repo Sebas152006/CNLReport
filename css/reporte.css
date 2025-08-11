@@ -83,17 +83,20 @@ textarea {
 
 .grupo1 {
     display: flex;
-    gap: 10%;
-    justify-content: center;
+    gap: 20px;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .campo {
     display: flex;
-    flex-direction: column; /* apila p y select */
-    min-width: 240px;
-    max-width: 300px;
+    flex-direction: column;
+    flex: 1 1 30%;
+    flex-basis: 30%;
+    min-width: 180px;
+    max-width: 240px;
 }
+
 
 .campo p {
     margin-bottom: 10px;

@@ -1,14 +1,16 @@
 <?php
-    session_start();
-    // Si el usuario existe procede a hacer verificacion de roles
-    if(isset($_SESSION['usuarios'])){
-        if ($_SESSION['rol'] == 1) {
-            header("location: admin.php");
-        } elseif ($_SESSION['rol'] == 2) {
-            header("location: reporte_Timbres.php");
-        }
-        exit();
-    }
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['rol'])) {
+    $redirecciones = [
+        1 => "roles/administrador_reportes/seleccion.php",
+        2 => "roles/usuarios_reportes/seleccion.php",
+        3 => "roles/visualizador_reportes/seleccion.php",
+    ];
+
+    header("Location: " . ($redirecciones[$_SESSION['rol']] ?? "error.php"));
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@
                 <!--Formulario de inicio de sesion-->
                 <form action="php/login_usuario_be.php" class="formulario_login" method="POST">
                     <p>Correo Electrónico</p>
-                    <input type="text" name="correo" required>
+                    <input type="text" name="numero_documento" required>
                     <p>Contraseña</p>
                     <input type="password" name="contrasenia" required>
                     <button class="inicio_sesion" type="submit">INICIAR SESIÓN</button>

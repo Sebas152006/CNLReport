@@ -12,7 +12,7 @@ $pdo = new PDO("mysql:host=localhost;dbname=cnl_report", 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Obtener datos del usuario
-$sql = "SELECT primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, correo FROM usuarios WHERE id = ?";
+$sql = "SELECT primer_nombre, segundo_nombre, primer_apellido, segundo_apellido FROM usuarios WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$usuario_id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);

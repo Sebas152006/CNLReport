@@ -14,7 +14,7 @@ $inicio = ($paginaActual - 1) * $usuariosPorPagina;
 // 📊 Total de usuarios
 $countSql = "SELECT COUNT(*) as total FROM usuarios";
 if (!empty($buscar)) {
-    $countSql .= " WHERE correo_electronico LIKE '%$buscar%' OR documento LIKE '%$buscar%'";
+    $countSql .= " WHERE numero_documento LIKE '%$buscar%'";
 }
 $countResult = mysqli_query($conexion, $countSql);
 $totalUsuarios = mysqli_fetch_assoc($countResult)['total'];
@@ -23,7 +23,7 @@ $totalPaginas = ceil($totalUsuarios / $usuariosPorPagina);
 // 📁 Consulta principal con LIMIT
 $sql = "SELECT * FROM usuarios";
 if (!empty($buscar)) {
-    $sql .= " WHERE correo_electronico LIKE '%$buscar%' OR documento LIKE '%$buscar%'";
+    $sql .= " WHERE numero_documento LIKE '%$buscar%'";
 }
 $sql .= " LIMIT $inicio, $usuariosPorPagina";
 $result = mysqli_query($conexion, $sql);
@@ -66,7 +66,6 @@ $result = mysqli_query($conexion, $sql);
         <th>Segundo Nombre</th>
         <th>Primer Apellido</th>
         <th>Segundo Apellido</th>
-        <th>Correo Electrónico</th>
         <th>Documento</th>
         <th>Contraseña</th>
         <th>Editar</th>
@@ -83,7 +82,6 @@ $result = mysqli_query($conexion, $sql);
           <td><input type="text" name="segundo_nombre" value="<?php echo $mostrar['segundo_nombre']; ?>" disabled></td>
           <td><input type="text" name="primer_apellido" value="<?php echo $mostrar['primer_apellido']; ?>" disabled></td>
           <td><input type="text" name="segundo_apellido" value="<?php echo $mostrar['segundo_apellido']; ?>" disabled></td>
-          <td><input type="email" name="correo" value="<?php echo $mostrar['correo']; ?>" disabled></td>
           <td><input type="text" name="numero_documento" value="<?php echo $mostrar['numero_documento']; ?>" disabled></td>
           <td><input type="password" name="contrasenia" placeholder="Dejar vacío si no se cambia" disabled></td>
           <td><button type="button" onclick="habilitarEdicion(<?php echo $mostrar['id']; ?>)"><img src="images/1.png" alt="Editar"></button></td>
@@ -125,7 +123,6 @@ $result = mysqli_query($conexion, $sql);
       <input type="text" name="nombre" placeholder="Nombre" required>
       <input type="text" name="apellido" placeholder="Apellido" required>
       <input type="text" name="documento" placeholder="Documento" required>
-      <input type="email" name="correo" placeholder="Correo electrónico" required>
       <input type="password" name="contrasenia" placeholder="Contraseña" required>
       <select name="rol" required>
         <option value="">Selecciona un rol</option>
