@@ -1,6 +1,7 @@
 <?php
-session_start();
 require '../../php/conexion_be.php';
+require '../../php/verificar_sesion.php';
+verificarAcceso([2]); // Permitir acceso a rol 2
 ?>
 
 <!DOCTYPE html>

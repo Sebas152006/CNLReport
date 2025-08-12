@@ -1,16 +1,18 @@
 <?php
-    require '../../php/conexion_be.php';
+  require '../../php/verificar_sesion.php';
+  verificarAcceso([3]); // Permitir acceso a rol 3
+  require '../../php/conexion_be.php';
 
-    $inicio = $_GET['fecha_inicio'] ?? '2000-01-01';
-    $fin = $_GET['fecha_fin'] ?? date('Y-m-d');
+  $inicio = $_GET['fecha_inicio'] ?? '2000-01-01';
+  $fin = $_GET['fecha_fin'] ?? date('Y-m-d');
 
-    // Reportes por piso
-    $sqlPiso = "SELECT piso, COUNT(*) AS total 
-                FROM reportes 
-                WHERE fecha BETWEEN '$inicio' AND '$fin'
-                GROUP BY piso 
-                ORDER BY piso ASC";
-    $resPiso = $conexion->query($sqlPiso);
+  // Reportes por piso
+  $sqlPiso = "SELECT piso, COUNT(*) AS total 
+              FROM reportes 
+              WHERE fecha BETWEEN '$inicio' AND '$fin'
+              GROUP BY piso 
+              ORDER BY piso ASC";
+  $resPiso = $conexion->query($sqlPiso);
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+require '../../php/verificar_sesion.php';
+verificarAcceso([2]); // Permitir acceso a rol 2
+
 require '../../php/conexion_be.php';
 
 if (!isset($_SESSION['id'])) {
@@ -48,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../../css/contrasenia.css">
-  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos2.css">
   <title>Mi Cuenta</title>
     <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
     <script>

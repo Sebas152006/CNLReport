@@ -1,3 +1,8 @@
+<?php
+require '../../php/verificar_sesion.php';
+verificarAcceso([3]); // Permitir acceso a rol 3
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

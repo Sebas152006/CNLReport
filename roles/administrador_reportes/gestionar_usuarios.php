@@ -1,5 +1,6 @@
 <?php
-session_start();
+require '../../php/verificar_sesion.php';
+verificarAcceso([1]); // Permitir acceso a rol 1
 include '../../php/conexion_be.php';
 include 'actualizar_usuarios.php';
 

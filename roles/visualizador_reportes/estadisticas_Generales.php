@@ -1,4 +1,6 @@
 <?php
+require '../../php/verificar_sesion.php';
+verificarAcceso([3]); // Permitir acceso a rol 3
 require '../../php/conexion_be.php';
 
 // Consulta total
