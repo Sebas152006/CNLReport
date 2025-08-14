@@ -137,8 +137,8 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
 
 
                     <?php if (!empty($reporte['nombre_responde'])): ?>
-    <p><strong>Respondido por:</strong> <?= htmlspecialchars($reporte['nombre_responde']) ?></p>
-<?php endif; ?>
+                        <p><strong>Respondido por:</strong> <?= htmlspecialchars($reporte['nombre_responde']) ?></p>
+                    <?php endif; ?>
 
                     <?php if (in_array($reporte['estado'], ['En Proceso', 'Finalizada'])): ?>
                         <p><strong>Respuesta de Sistemas:</strong><br><?= $reporte['respuesta'] ?? 'Pendiente...' ?></p>
@@ -165,38 +165,38 @@ $totalPaginas = ceil($totalRegistros / $porPagina);
                             </div>
                         <?php endif; ?>
                     </div>
-                    <?php endif; ?>
+                    <?php endif; ?><br>
                     
     <?php if ($reporte['estado'] !== 'Finalizada'): ?>
-        <form action="php/responder_reporte.php" method="POST" enctype="multipart/form-data">
+        <form action="php/responder_reporte.php" method="POST" enctype="multipart/form-data" class="form-respuesta">
             <input type="hidden" name="reporte_id" value="<?= $reporte['id'] ?>">
 
             <h3>Responder Solicitud</h3>
 
             <label for="respuesta">Respuesta:</label><br>
-            <textarea name="respuesta" rows="4" required><?= htmlspecialchars($reporte['respuesta'] ?? '') ?></textarea><br><br>
+            <textarea class="form-textarea" name="respuesta" rows="4" required><?= htmlspecialchars($reporte['respuesta'] ?? '') ?></textarea><br><br>
 
             <h4>Imágenes</h4>
-            <label>Antes:</label><br>
+            <label class="form-label">Antes:</label>
             <?php if ($reporte['imagen_antes']): ?>
-                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=antes" style="max-width:150px;"><br>
+                <img class="form-imagen" src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=antes" style="max-width:150px;"><br>
             <?php endif; ?>
-            <input type="file" name="imagen_antes" accept="image/*"><br><br>
+            <input type="file" name="imagen_antes" class="form-file" accept="image/*"><br><br>
 
-            <label>Después:</label><br>
+            <label class="form-label">Después:</label>
             <?php if ($reporte['imagen_despues']): ?>
-                <img src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=despues" style="max-width:150px;"><br>
+                <img class="form-imagen" src="../php/ver_imagen.php?id=<?= $reporte['id'] ?>&tipo=despues" style="max-width:150px;"><br>
             <?php endif; ?>
-            <input type="file" name="imagen_despues" accept="image/*"><br><br>
+            <input type="file" class="form-file" name="imagen_despues" accept="image/*"><br><br>
 
-            <label for="estado">Estado del reporte:</label><br>
-            <select name="estado" required>
+            <label for="estado" class="form-label">Estado del reporte:</label>
+            <select name="estado" class="form-select" required>
                 <option value="Ingresada" <?= $reporte['estado'] === 'Ingresada' ? 'selected' : '' ?>>Ingresada</option>
                 <option value="En Proceso" <?= $reporte['estado'] === 'En Proceso' ? 'selected' : '' ?>>En Proceso</option>
                 <option value="Finalizada" <?= $reporte['estado'] === 'Finalizada' ? 'selected' : '' ?>>Finalizada</option>
-            </select><br><br>
+            </select>
 
-            <button type="submit">Guardar Cambios</button>
+            <button type="submit" class="form-boton">Guardar Cambios</button>
         </form>
         <?php endif; ?> 
                 </div>

@@ -139,3 +139,53 @@ th {
     margin-bottom: 6px;
     font-weight: bold;
 }
+
+
+
+
+.form-titulo,
+.form-subtitulo {
+    margin-bottom: 10px;
+    color: #2C1E53;
+}
+
+.form-label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.form-textarea,
+.form-select,
+.form-file {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.form-imagen {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 2px solid #2C1E53;
+    max-width: 150px;
+}
+
+.form-boton {
+    background-color: #2C1E53;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-boton:hover {
+    background-color: #00B6B0;
+    color: #2C1E53;
+}

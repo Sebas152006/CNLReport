@@ -47,7 +47,8 @@ verificarAcceso([2]); // Permitir acceso a rol 2
                             $query_pisos = "SELECT * FROM pisos ORDER BY numero ASC";
                             $resultado_pisos = $conexion->query($query_pisos);
                             while ($fila = $resultado_pisos->fetch_assoc()) {
-                                echo '<option value="' . $fila['numero'] . '">' . $fila['numero'] . '</option>';
+                                echo '<option value="' . $fila['id'] . '">' . $fila['numero'] . '</option>';
+
                             }
                         ?>
                     </select>

@@ -23,6 +23,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['rol'])) {
     <link rel="icon" href="images/CNLReport_pequena.png" type="image/png">
 </head>
 <body>
+    <img src="images/CNLReport.png" alt="Logo CNLReport" class="logo-encima">
+
     <div class="recuadro1">
         <section class="recuadro">
             <h2>Inicio de Sesión</h2>
@@ -39,4 +41,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['rol'])) {
         </section>
     </div>
 </body>
+<footer class="pie-pagina">
+    Aplicativo desarrollado por Sebastian Castellanos Carvajal
+</footer>
+
 </html>
