@@ -6,7 +6,6 @@ if (isset($_POST['btnGuardar'])) {
     $segundo_nombre = $_POST['segundo_nombre'];
     $primer_apellido = $_POST['primer_apellido'];
     $segundo_apellido = $_POST['segundo_apellido'];
-    $correo = $_POST['correo'];
     $numero_documento = $_POST['numero_documento'];
     $contrasenia = $_POST['contrasenia']; // Lo que viene del formulario
 
@@ -29,7 +28,6 @@ if (isset($_POST['btnGuardar'])) {
                 segundo_nombre = '$segundo_nombre',
                 primer_apellido = '$primer_apellido', 
                 segundo_apellido = '$segundo_apellido', 
-                correo = '$correo', 
                 numero_documento = '$numero_documento', 
                 contrasenia = '$contrasenia_encriptada' 
             WHERE id = '$id'";

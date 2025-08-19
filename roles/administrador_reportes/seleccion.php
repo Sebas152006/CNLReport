@@ -87,6 +87,16 @@
             </div>
         </a>
 
+        <!-- Importar Imagenes -->
+        <a href="super_admin.php" class="carta">
+            <div class="fondo_carta"
+            style="background-image: url('images/Importar_Reportes.png');"></div>
+            <div class="contenido-carta">
+                <p>Reportes</p>
+                <h3>Importar Imagenes</h3>
+            </div>
+        </a>
+
         <!-- Gestionar Cuenta -->
         <a href="contrasenia.php" class="carta">
             <div class="fondo_carta"

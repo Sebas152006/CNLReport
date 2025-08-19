@@ -23,6 +23,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../css/diagnostico.css">
   <link rel="stylesheet" href="../../css/estilos2.css">
+  <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
+  <script>
+      const titulos = ["CNLReport", "Estadísticas Por Piso"];
+      let index = 0;
+
+      setInterval(() => {
+          document.title = titulos[index];
+          index = (index + 1) % titulos.length;
+      }, 3000);
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -36,7 +46,7 @@
         <label for="fecha_fin">Fecha Fin:</label>
         <input type="date" name="fecha_fin" id="fecha_fin" required>
   
-        <button type="submit">Filtrar 📅</button>
+        <button type="submit">FILTRAR</button>
     </form>
 
     <h2>Reportes por Piso</h2>

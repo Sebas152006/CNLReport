@@ -2,7 +2,7 @@
 // Configuración de conexión segura
 define('DB_HOST', 'localhost');
 define('DB_USER', 'cnl_admin');
-define('DB_PASS', 'WFt@L[2Z5e1TPgYq'); // Nueva contraseña segura
+define('DB_PASS', 'k*T]SQUwIx!bTU_*'); // Nueva contraseña segura
 define('DB_NAME', 'cnl_report');
 
 // Conexión con manejo de errores y excepciones

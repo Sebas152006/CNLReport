@@ -36,7 +36,7 @@ $result = mysqli_query($conexion, $sql);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../css/usuarios_admin.css">
-        <link rel="stylesheet" href="../../css/estilos2.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
         <title>Gestionar Usuarios</title>
         <link rel="icon" href="../../images/CNLReport_pequena.png" type="image/png">
         <script>
@@ -86,7 +86,12 @@ $result = mysqli_query($conexion, $sql);
           <td><input type="text" name="numero_documento" value="<?php echo $mostrar['numero_documento']; ?>" disabled></td>
           <td><input type="password" name="contrasenia" placeholder="Dejar vacío si no se cambia" disabled></td>
           <td><button type="button" onclick="habilitarEdicion(<?php echo $mostrar['id']; ?>)"><img src="images/1.png" alt="Editar"></button></td>
-          <td><button type="submit" name="btnGuardar" value="<?php echo $mostrar['id']; ?>" disabled><img src="images/3.png" alt="Guardar"></button></td>
+          <td>
+            <button id="guardar-<?php echo $mostrar['id']; ?>" type="submit" name="btnGuardar" value="<?php echo $mostrar['id']; ?>" disabled>
+              <img src="images/3.png" alt="Guardar">
+            </button>
+          </td>
+
         </form>
       </tr>
       <?php } ?>
@@ -129,7 +134,7 @@ $result = mysqli_query($conexion, $sql);
         <option value="">Selecciona un rol</option>
         <option value="1">Administrador</option>
         <option value="2">Usuario</option>
-        <option value="3">Supervisor</option>
+        <option value="3">Visualizador</option>
       </select>
       <button type="submit">Registrar</button>
     </form>
@@ -155,4 +160,59 @@ window.onclick = function (event) {
 
 
 </body>
+<script>
+function habilitarEdicion(id) {
+  const fila = document.getElementById(`fila-${id}`);
+  const inputs = fila.querySelectorAll('input');
+  const guardarBtn = fila.querySelector('button[name="btnGuardar"]');
+
+  inputs.forEach(input => input.disabled = false);
+  guardarBtn.disabled = false;
+
+  // Cambiar color de fondo
+  fila.style.backgroundColor = '#ffe797ff'; // Amarillo suave
+
+  // Mostrar confirmación
+  if (!fila.querySelector('.confirmacion-edicion')) {
+    const confirmacion = document.createElement('td');
+    confirmacion.colSpan = 10;
+    confirmacion.className = 'confirmacion-edicion';
+    confirmacion.innerHTML = `
+      <div style="padding: 10px; background-color: #ffeeba; border: 1px solid #ffc107; border-radius: 6px;">
+        ¿Quieres editar este usuario? 
+        <button onclick="confirmarEdicion(${id})">Aceptar</button>
+        <button onclick="cancelarEdicion(${id})">Cancelar</button>
+      </div>
+    `;
+    fila.after(confirmacion);
+  }
+}
+
+function confirmarEdicion(id) {
+  const fila = document.getElementById(`fila-${id}`);
+  const confirmacion = fila.nextElementSibling;
+
+  if (confirmacion && confirmacion.classList.contains('confirmacion-edicion')) {
+    confirmacion.remove();
+  }
+
+  fila.style.backgroundColor = '#27105ec2'; // Verde suave para indicar edición activa
+}
+
+
+function cancelarEdicion(id) {
+  const fila = document.getElementById(`fila-${id}`);
+  const inputs = fila.querySelectorAll('input');
+  const guardarBtn = fila.querySelector('button[name="btnGuardar"]');
+  const confirmacion = fila.nextElementSibling;
+
+  inputs.forEach(input => input.disabled = true);
+  guardarBtn.disabled = true;
+  fila.style.backgroundColor = ''; // Restaurar color
+  if (confirmacion && confirmacion.classList.contains('confirmacion-edicion')) {
+    confirmacion.remove();
+  }
+}
+</script>
+
 </html>

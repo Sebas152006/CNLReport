@@ -230,7 +230,6 @@ $fin = min($inicio + $maxLinks - 1, $totalPaginas);
 </div>
 
 
-
 </div>
 
 

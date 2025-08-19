@@ -27,3 +27,50 @@ body {
 canvas {
   margin-bottom: 50px;
 }
+
+.form-fechas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.form-fechas label {
+    font-weight: bold;
+    color: #444;
+    margin-right: 6px;
+}
+
+.form-fechas input[type="date"] {
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 0 4px rgba(0,0,0,0.05);
+    transition: border-color 0.3s;
+}
+
+.form-fechas input[type="date"]:focus {
+    border-color: #2C1E53;
+    outline: none;
+}
+
+.form-fechas button[type="submit"] {
+    padding: 4px 10px;
+    background-color: #2C1E53;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-fechas button[type="submit"]:hover {
+    background-color: #2C1E53;
+    transform: scale(1.05);
+}

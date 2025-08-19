@@ -35,7 +35,7 @@
         <label for="fecha_fin">Fecha Fin:</label>
         <input type="date" name="fecha_fin" id="fecha_fin" required>
   
-        <button type="submit">Filtrar 📅</button>
+        <button type="submit">FILTRAR</button>
     </form>
     
     <h2>Reportes por Habitación</h2>
