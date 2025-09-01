@@ -17,11 +17,48 @@ $paginasTotales = ceil($total / $porPagina);
 
 $resultado = $conexion->query("SELECT id, reporte FROM reportes ORDER BY fecha_creacion DESC LIMIT $inicio, $porPagina");
 
-
 $bloque = 10;
 $bloqueActual = ceil($pagina / $bloque);
 $inicioBloque = ($bloqueActual - 1) * $bloque + 1;
 $finBloque = min($inicioBloque + $bloque - 1, $paginasTotales);
+
+// 🚨 Procesar envío de imágenes
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['reporte_id'];
+    $imagenAntes = null;
+    $imagenDespues = null;
+
+    if (!empty($_FILES['imagen_antes']['tmp_name'])) {
+        $imagenAntes = file_get_contents($_FILES['imagen_antes']['tmp_name']);
+    }
+
+    if (!empty($_FILES['imagen_despues']['tmp_name'])) {
+        $imagenDespues = file_get_contents($_FILES['imagen_despues']['tmp_name']);
+    }
+
+    // Actualizar solo imágenes, sin tocar nada más
+    $sql = "UPDATE reportes 
+            SET 
+                imagen_antes = COALESCE(?, imagen_antes), 
+                imagen_despues = COALESCE(?, imagen_despues)
+            WHERE id = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("bbi", $imagenAntes, $imagenDespues, $id);
+
+    // Para datos binarios usamos send_long_data
+    if ($imagenAntes !== null) {
+        $stmt->send_long_data(0, $imagenAntes);
+    }
+    if ($imagenDespues !== null) {
+        $stmt->send_long_data(1, $imagenDespues);
+    }
+
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: super_admin.php"); // recarga la página
+    exit;
+}
 
 ?>
 

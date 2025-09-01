@@ -18,44 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = $_POST['estado'];
     $fecha_respuesta = date('Y-m-d H:i:s');
 
-    // Función de compresión
-    function comprimirImagen($archivoTmp, $calidad = 70) {
-        $info = getimagesize($archivoTmp);
-        $tipo = $info['mime'];
-
-        switch ($tipo) {
-            case 'image/jpeg':
-                $imagen = imagecreatefromjpeg($archivoTmp);
-                break;
-            case 'image/png':
-                $imagen = imagecreatefrompng($archivoTmp);
-                imagepalettetotruecolor($imagen);
-                break;
-            case 'image/webp':
-                $imagen = imagecreatefromwebp($archivoTmp);
-                break;
-            default:
-                return file_get_contents($archivoTmp);
-        }
-
-        ob_start();
-        imagejpeg($imagen, null, $calidad);
-        $imagenComprimida = ob_get_clean();
-        imagedestroy($imagen);
-
-        return $imagenComprimida;
-    }
-
-    // Imágenes
+    // Imágenes sin compresión (se guardan tal cual)
     $imagenAntes = null;
     $imagenDespues = null;
 
     if (!empty($_FILES['imagen_antes']['tmp_name'])) {
-        $imagenAntes = comprimirImagen($_FILES['imagen_antes']['tmp_name']);
+        $imagenAntes = file_get_contents($_FILES['imagen_antes']['tmp_name']);
     }
 
     if (!empty($_FILES['imagen_despues']['tmp_name'])) {
-        $imagenDespues = comprimirImagen($_FILES['imagen_despues']['tmp_name']);
+        $imagenDespues = file_get_contents($_FILES['imagen_despues']['tmp_name']);
     }
 
     // Actualización SQL con usuario que responde
