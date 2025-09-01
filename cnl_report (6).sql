@@ -2159,7 +2159,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `numero_documento`, `contrasenia`, `rol`) VALUES
-(4, 'Sebastian', '', 'Castellanos', 'Carvajal', '1033693197', '$2y$10$hKShzgc4PbrcvuQu3yZmEOV8kOflMblGg0/sI9BAdP2eY9TJkGGaW', 2),
+(4, 'Sebastian', '', 'Castellanos', 'Carvajal', '111111111', '$2y$10$hKShzgc4PbrcvuQu3yZmEOV8kOflMblGg0/sI9BAdP2eY9TJkGGaW', 2),
 (5, 'ADMIN', '', 'ASDSD', '', '1234', '$2y$10$KoUDhWuw3k844VYrIT1.OugoabHShkxlMuurc9a4BaPPnAcccerfK', 1),
 (6, 'JUAN', NULL, 'SADS', '', '3213', '$2y$10$FTT9.620ys9Z/zI3c51SHu6fihLXi1DNU532cUGZK9r0zpNm6PK1O', 2),
 (7, 'Sebastian', '', 'Castellanos Carvajal', '', '2101', '$2y$10$Eo01hLIfZWvNRNvcSKWaB.X7u4/cN2BbEa.I9K3Y9esJDZddLYOZO', 3),
